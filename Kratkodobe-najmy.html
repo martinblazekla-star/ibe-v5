@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Krátkodobé nájmy — klikací prototyp · IBE v5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="journey-shell.css" rel="stylesheet" />
+</head>
+<body>
+  <header class="js-bar" id="js-bar">
+    <div class="js-brandmark">
+      <span class="js-logo">B</span>
+      <span class="js-brandtext">
+        <span class="b1" id="js-title">Krátkodobé nájmy</span><br />
+        <span class="b2" id="js-sub">Klikací prototyp · IBE v5</span>
+      </span>
+    </div>
+
+    <nav class="js-steps" id="js-steps"></nav>
+
+    <div class="js-tools">
+      <select class="js-select js-journey" id="js-journey" title="Přepnout cestu"></select>
+      <select class="js-select" id="js-screens" title="Skočit na obrazovku">
+        <option value="">Všechny obrazovky…</option>
+      </select>
+      <button class="js-btn" id="js-restart" type="button" title="Začít cestu od začátku">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><polyline points="3 3 3 8 8 8"/></svg>
+        Restartovat
+      </button>
+    </div>
+  </header>
+
+  <main class="js-stage">
+    <iframe class="js-frame" id="js-frame" title="Krátkodobé nájmy — flow"></iframe>
+  </main>
+
+  <script>
+    window.JOURNEY = {
+      title: "Krátkodobé nájmy",
+      subtitle: "Klikací prototyp · IBE v5",
+      start: "Multi-Property-Cards.html",
+      steps: [
+        {
+          label: "Výběr objektu",
+          entry: "Multi-Property-Cards.html",
+          pages: ["Multi-Property-Cards.html", "Multi-Property-Map.html"]
+        },
+        {
+          label: "Výběr pokoje / služby",
+          entry: "Pick-Room-Table-View.html",
+          pages: [
+            "Pick-Room-Table-View.html", "Pick-Room-List-View.html",
+            "Pick-Room-Grid-View.html", "Pick-Room-Map-View.html",
+            "Pick-Room-Single-Room.html", "Hourly-Pick-Room.html",
+            "Pick-Package.html", "Pick-Package-Single-Package.html",
+            "Wellness-Booking.html", "Voucher-Sale.html",
+            "Reviews.html", "Concierge.html",
+            "Room-Landing.html", "Package-Landing.html"
+          ]
+        },
+        { label: "Vylepšení pobytu", entry: "Upsell.html", pages: ["Upsell.html"] },
+        { label: "Údaje a platba", entry: "Checkout.html", pages: ["Checkout.html"] },
+        { label: "Potvrzení", entry: "Confirmation.html", pages: ["Confirmation.html"] }
+      ],
+      screens: [
+        { group: "Multiproperty", label: "Výběr objektu — karty", page: "Multi-Property-Cards.html" },
+        { group: "Multiproperty", label: "Výběr objektu — mapa", page: "Multi-Property-Map.html" },
+        { group: "Ubytování", label: "Pokoje — tabulka", page: "Pick-Room-Table-View.html" },
+        { group: "Ubytování", label: "Pokoje — seznam", page: "Pick-Room-List-View.html" },
+        { group: "Ubytování", label: "Pokoje — karty", page: "Pick-Room-Grid-View.html" },
+        { group: "Ubytování", label: "Pokoje — mapa apartmánů", page: "Pick-Room-Map-View.html" },
+        { group: "Ubytování", label: "Detail pokoje", page: "Pick-Room-Single-Room.html" },
+        { group: "Ubytování", label: "Hodinový pronájem", page: "Hourly-Pick-Room.html" },
+        { group: "Balíčky", label: "Výpis balíčků", page: "Pick-Package.html" },
+        { group: "Balíčky", label: "Detail balíčku", page: "Pick-Package-Single-Package.html" },
+        { group: "Wellness", label: "Wellness rezervace", page: "Wellness-Booking.html" },
+        { group: "Vouchery", label: "Dárkový voucher", page: "Voucher-Sale.html" },
+        { group: "Další", label: "Hodnocení hostů", page: "Reviews.html" },
+        { group: "Další", label: "Mapa & doprava", page: "Concierge.html" },
+        { group: "Rezervace", label: "Vylepšení pobytu (upsell)", page: "Upsell.html" },
+        { group: "Rezervace", label: "Údaje a platba", page: "Checkout.html" },
+        { group: "Rezervace", label: "Potvrzení rezervace", page: "Confirmation.html" }
+      ],
+      journeys: [
+        { label: "Krátkodobé nájmy", href: "Kratkodobe-najmy.html" },
+        { label: "Dlouhodobé nájmy", href: "Dlouhodobe-najmy.html" },
+        { label: "Proposal Engine (B2B)", href: "Proposal-Engine.html" },
+        { label: "Hodinový hotel", href: "Hodinovy-hotel.html" }
+      ]
+    };
+  </script>
+  <script src="journey-shell.js"></script>
+</body>
+</html>

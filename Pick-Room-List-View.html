@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1280" />
+<title>IBE v4 — Vybrat pokoj (list view)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Type */
+    --font-ui: "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-display: "Source Sans 3", "Source Sans Pro", -apple-system, sans-serif;
+
+    /* Ink (text) */
+    --ink-1: #1F2429;
+    --ink-2: #484C4F;
+    --ink-3: #6D7073;
+    --ink-4: #9093A0;
+
+    /* Surfaces & borders */
+    --border: #E2E6E8;
+    --border-soft: #EEF1F3;
+    --surface: #F7F8F9;
+    --neutral-50: #F8FAFB;
+    --neutral-100: #F1F4F6;
+
+    /* Brand */
+    --brand: #550173;
+    --brand-dark: #3F0156;
+    --brand-tint: #FAF5FC;
+
+    /* Accent (success / positive) */
+    --accent: #1F8A5B;
+    --accent-dark: #176B47;
+    --accent-tint: #E8F4EE;
+
+    /* Status */
+    --warning: #B45309;
+    --warning-tint: #FEF3C7;
+    --danger: #B91C1C;
+    --danger-tint: #FEE2E2;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-ui);
+    color: var(--ink-1);
+    background: var(--surface);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  button { font-family: inherit; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="data.jsx"></script>
+  <script type="text/babel" src="icons.jsx"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="rate-config-dialog.jsx"></script>
+  <script type="text/babel" src="date-picker.jsx"></script>
+  <script type="text/babel" src="guests-voucher-picker.jsx"></script>
+  <script type="text/babel" src="lang-currency-picker.jsx"></script>
+  <script type="text/babel" src="login-loyalty.jsx"></script>
+  <script type="text/babel" src="conversion-banners.jsx"></script>
+  <script type="text/babel" src="room-detail-dialog.jsx"></script>
+  <script type="text/babel" src="detail-dialogs-host.jsx"></script>
+  <script type="text/babel" src="pick-room-shared.jsx"></script>
+  <script type="text/babel" src="app-list.jsx"></script>
+</body>
+</html>

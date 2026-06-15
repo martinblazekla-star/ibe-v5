@@ -1,0 +1,182 @@
+/* ============================================================
+   Journey shell — testing harness chrome around the IBE flow.
+   Brand: #550173 / #3F0156 · Type: Source Sans 3
+   ============================================================ */
+:root {
+  --js-brand: #550173;
+  --js-brand-dark: #3F0156;
+  --js-brand-light: #7C2EA0;
+  --js-ink: #1F2429;
+  --js-font: "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
+body {
+  font-family: var(--js-font);
+  background: #0E0410;
+  color: var(--js-ink);
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------- Top bar */
+.js-bar {
+  flex: 0 0 auto;
+  background: linear-gradient(100deg, #3F0156 0%, #550173 55%, #6B1C8C 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 16px;
+  height: 60px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.35);
+  position: relative;
+  z-index: 10;
+}
+.js-brandmark {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding-right: 18px;
+  border-right: 1px solid rgba(255,255,255,0.16);
+  flex: 0 0 auto;
+}
+.js-logo {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: rgba(255,255,255,0.14);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 15px; letter-spacing: 0.02em;
+}
+.js-brandtext { line-height: 1.05; }
+.js-brandtext .b1 { font-weight: 800; font-size: 14.5px; letter-spacing: 0.02em; white-space: nowrap; }
+.js-brandtext .b2 { font-size: 11px; opacity: 0.72; font-weight: 600; white-space: nowrap; }
+
+/* ---------------------------------------------------------- Stepper */
+.js-steps {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.js-steps::-webkit-scrollbar { display: none; }
+.js-step {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 7px 4px;
+  white-space: nowrap;
+  opacity: 0.55;
+  transition: opacity 140ms;
+}
+.js-step:hover { opacity: 0.85; }
+.js-step.active { opacity: 1; }
+.js-step.done { opacity: 0.82; }
+.js-step .num {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 12.5px; font-weight: 700;
+  background: rgba(255,255,255,0.16);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  flex: 0 0 auto;
+  transition: all 160ms;
+}
+.js-step.active .num {
+  background: #fff; color: var(--js-brand);
+  border-color: #fff;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.18);
+}
+.js-step.done .num {
+  background: #7CD3A6; color: #0E3A24; border-color: #7CD3A6;
+}
+.js-step .lbl { font-size: 13px; font-weight: 600; letter-spacing: 0.01em; }
+.js-sep {
+  flex: 0 1 26px;
+  height: 1.5px;
+  min-width: 8px;
+  background: rgba(255,255,255,0.22);
+  margin: 0 2px;
+}
+
+/* ---------------------------------------------------------- Right controls */
+.js-tools { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; }
+.js-select {
+  appearance: none;
+  background: rgba(255,255,255,0.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 9px center;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 8px 28px 8px 11px;
+  cursor: pointer;
+  max-width: 180px;
+}
+.js-select option { color: #1F2429; }
+.js-journey {
+  font-weight: 700;
+  background-color: rgba(255,255,255,0.2);
+  max-width: 190px;
+}
+.js-journey:hover { background-color: rgba(255,255,255,0.28); }
+.js-btn {
+  appearance: none;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: #fff;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 8px 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 140ms;
+}
+.js-btn:hover { background: rgba(255,255,255,0.2); }
+.js-btn svg { width: 14px; height: 14px; }
+.js-switch {
+  color: #fff; text-decoration: none; font-size: 12.5px; font-weight: 700;
+  opacity: 0.82; display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 6px;
+}
+.js-switch:hover { opacity: 1; }
+
+/* ---------------------------------------------------------- Frame */
+.js-stage {
+  flex: 1 1 auto;
+  position: relative;
+  background: #F7F8F9;
+  min-height: 0;
+}
+.js-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ---------------------------------------------------------- Responsive */
+@media (max-width: 1080px) {
+  .js-step .lbl { display: none; }
+  .js-sep { flex-basis: 14px; }
+}
+@media (max-width: 720px) {
+  .js-brandtext { display: none; }
+  .js-switch { display: none; }
+  .js-select { max-width: 130px; }
+}

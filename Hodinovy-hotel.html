@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hodinový hotel — klikací prototyp · IBE v5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="journey-shell.css" rel="stylesheet" />
+</head>
+<body>
+  <header class="js-bar" id="js-bar">
+    <div class="js-brandmark">
+      <span class="js-logo">B</span>
+      <span class="js-brandtext">
+        <span class="b1" id="js-title">Hodinový hotel</span><br />
+        <span class="b2" id="js-sub">Klikací prototyp · IBE v5</span>
+      </span>
+    </div>
+
+    <nav class="js-steps" id="js-steps"></nav>
+
+    <div class="js-tools">
+      <select class="js-select js-journey" id="js-journey" title="Přepnout cestu"></select>
+      <select class="js-select" id="js-screens" title="Skočit na obrazovku">
+        <option value="">Všechny obrazovky…</option>
+      </select>
+      <button class="js-btn" id="js-restart" type="button" title="Začít cestu od začátku">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><polyline points="3 3 3 8 8 8"/></svg>
+        Restartovat
+      </button>
+    </div>
+  </header>
+
+  <main class="js-stage">
+    <iframe class="js-frame" id="js-frame" title="Hodinový hotel — flow"></iframe>
+  </main>
+
+  <script>
+    window.JOURNEY = {
+      title: "Hodinový hotel",
+      subtitle: "Klikací prototyp · IBE v5",
+      start: "Hourly-Pick-Room.html",
+      steps: [
+        { label: "Výběr pokoje", entry: "Hourly-Pick-Room.html", pages: ["Hourly-Pick-Room.html"] },
+        { label: "Údaje a platba", entry: "Checkout.html", pages: ["Checkout.html"] },
+        { label: "Potvrzení", entry: "Confirmation.html", pages: ["Confirmation.html"] }
+      ],
+      screens: [
+        { group: "Hodinová rezervace", label: "Výběr pokoje (po hodinách)", page: "Hourly-Pick-Room.html" },
+        { group: "Rezervace", label: "Údaje a platba", page: "Checkout.html" },
+        { group: "Rezervace", label: "Potvrzení rezervace", page: "Confirmation.html" }
+      ],
+      journeys: [
+        { label: "Krátkodobé nájmy", href: "Kratkodobe-najmy.html" },
+        { label: "Dlouhodobé nájmy", href: "Dlouhodobe-najmy.html" },
+        { label: "Proposal Engine (B2B)", href: "Proposal-Engine.html" },
+        { label: "Hodinový hotel", href: "Hodinovy-hotel.html" }
+      ]
+    };
+  </script>
+  <script src="journey-shell.js"></script>
+</body>
+</html>
